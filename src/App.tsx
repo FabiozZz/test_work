@@ -1,5 +1,5 @@
 import React from 'react'
-import {getCatalog, getDetails} from "./pages/catalog/catalog-service.ts";
+import {getCatalog, getDetails} from "./pages/catalog/catalog-service";
 import {
     Box,
     Card, CardContent,
@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import FilterEmpty from '@mui/icons-material/FilterAltOff';
 import FilterActive from '@mui/icons-material/FilterAlt';
-import {useDebounce} from "./hooks/useDebounce.tsx";
+import {useDebounce} from "./hooks/useDebounce";
 import {AppApiProductSchemaProductSchema, CatalogResponseSchema} from "./api-client";
 
 const skeletonArr = Array(25).fill({});
@@ -60,7 +60,7 @@ function App() {
         let isEmpty = true;
         for (const paramsKey in params) {
             if (paramsKey !== 'price' && paramsKey !== 'page') {
-                if (params[paramsKey]) {
+                if (params[paramsKey as keyof typeof params]) {
                     isEmpty = false
                     break;
                 }
@@ -73,7 +73,7 @@ function App() {
 
 
     React.useEffect(() => {
-        getCatalog(debounceQuery).then((response) => {
+        getCatalog(debounceQuery!).then((response) => {
             setData(response)
         }).finally(() => setIsFetching(false))
     }, [debounceQuery]);
