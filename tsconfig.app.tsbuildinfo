@@ -1,1 +1,0 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/api-client/api.ts","./src/api-client/base.ts","./src/api-client/common.ts","./src/api-client/configuration.ts","./src/api-client/index.ts","./src/hooks/usedebounce.tsx","./src/pages/catalog/catalog.tsx","./src/pages/catalog/catalog-service.ts"],"version":"5.6.3"}
